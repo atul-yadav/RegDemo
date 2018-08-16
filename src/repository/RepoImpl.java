@@ -22,7 +22,7 @@ public class RepoImpl {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		
-			connect = DriverManager.getConnection("jdbc:mysql://10.0.0.160/db1000122?" + "user=u1000122&password=gxVmKl7i2j");
+			connect = DriverManager.getConnection("jdbc:mysql://10.0.0.160/db1000122" ,System.getenv("DBUSER"), System.getenv("DBPASSWORD"));
 
 			preparedStatement = connect
 			      .prepareStatement("insert into  db1000122.user values (?, ?, ?, ? )");
@@ -31,9 +31,9 @@ public class RepoImpl {
 			preparedStatement.setString(2, user.getUserName());
 			preparedStatement.setString(3, user.getPassword());
 			preparedStatement.setString(4, user.getMobile());
-			preparedStatement.addBatch();
+			//preparedStatement.addBatch();
 			preparedStatement.executeUpdate();
-			preparedStatement.executeBatch();
+			//preparedStatement.executeBatch();
 			System.out.println("Done");
 
 		} catch (Exception e) {
@@ -48,9 +48,10 @@ public class RepoImpl {
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
 	
-		connect = DriverManager.getConnection("jdbc:mysql://10.0.0.160/db1000122?" + "user=u1000122&password=gxVmK7li2j");
+		//connect = DriverManager.getConnection("jdbc:mysql://10.0.0.160/db1000122?", "u1000122","gxVmK71i2j");
+		connect = DriverManager.getConnection("jdbc:mysql://10.0.0.160/db1000122" ,System.getenv("DBUSER"), System.getenv("DBPASSWORD"));
 	  statement = (Statement) connect.createStatement();	
-	  resultSet=((java.sql.Statement) statement).executeQuery(" select * from  db1000122.user where usernamel='"+userName+"';");
+	  resultSet=((java.sql.Statement) statement).executeQuery(" select * from  db1000122.user where username='"+userName+"';");
      if(resultSet.next())
      {
      if(resultSet.getString(3).equals(password) && resultSet.getString(2).equals(userName))

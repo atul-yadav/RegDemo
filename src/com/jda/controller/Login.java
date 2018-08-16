@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 		    {
 		   	 System.out.println("password is matched");
 		   	 
-		   	 response.sendRedirect("home.html");
+		   	 response.sendRedirect("home.jsp");
 		    }
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

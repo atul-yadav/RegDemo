@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="US-ASCII">
-<title>Login</title>
+<title>My servlet Registration</title>
 <script type="text/javascript">
 function validateForm() {
     var x = document.forms["login"]["username"].value;

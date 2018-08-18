@@ -25,11 +25,13 @@ public class SessionCounter  implements HttpSessionListener {
 		  System.out.println("hey atul  total active session =  "+ totalActiveSessions  );
 		return totalActiveSessions;
 	  }
+	  
 		/*
 	public static void getTotalActiveSession() {
 		System.out.println(totalActiveSessions);
 	}
 	*/
+
 	  @Override
 	  public void sessionCreated(HttpSessionEvent arg0) {
 		totalActiveSessions++;

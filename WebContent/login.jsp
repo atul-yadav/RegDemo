@@ -17,8 +17,10 @@
 				<tr>
 					<td>password</td>
 					<td><input type="password" name="password" /></td>
+				
 				</tr>
 				</table>
 			<input type="submit" value="Submit" /></form><a href="register.jsp">Registration</a>
+			
 </body>
 </html>

@@ -1,21 +1,22 @@
+
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Insert title here</title>
+<meta charset="US-ASCII">
+<title>Home</title>
 </head>
 <body>
-
-<table style="with: 50%">
-	<tr><td>
-	<%String username=(String) request.getAttribute("name");%>
-Welcome User!!!! You have logged in.</td></tr>
-	<% out.println("session created"); %>
-	<button type = "button" onclick='location.href="login.jsp"'>logout</button>
-
-</table>
+<h1>Home</h1>
+<form action = "home" method = "post">
+<div><% 	 session = request.getSession();
+		String name = (String) session.getAttribute("name");
+		out.println("Welcome " + name); %>
+</div>
+<div>
+<button type = "submit" onclick = '<% session.invalidate(); %>'>Logout</button>
+</div>
+</form>
 </body>
 </html>

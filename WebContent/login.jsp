@@ -3,24 +3,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>this is login page</title>
+<meta charset="US-ASCII">
+<title>Login</title>
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["login"]["username"].value;
+    if (x == "") {
+        alert("User name must be filled out");
+        return false;
+    }
+    var y = document.forms["login"]["password"].value;
+    if (y == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+}
+</script>
 </head>
 <body>
-<h1>Login Form</h1>
-<form action="atullogin" method="post">
-<table style="with: 50%">
-<tr>
-					<td>userName </td>
-					<td><input type="text" name="username" /></td>
-				</tr>
-				<tr>
-					<td>password</td>
-					<td><input type="password" name="password" /></td>
-				
-				</tr>
-				</table>
-			<input type="submit" value="Submit" /></form><a href="register.jsp">Registration</a>
-			
+	<h1>Login</h1>
+	<form name = "login" action="atullogin" onsubmit="return validateForm()" method="post">
+		<div class="container">
+			<label for="uname"><b>Username</b></label> <input type="text"
+				placeholder="Enter Username" name="username" required>
+		</div>
+		<div>
+			<label for="psw"><b>Password</b></label> <input type="password"
+				placeholder="Enter Password" name="password" required>
+		</div>
+		<div>
+			<label>
+				<button type="submit">Login</button>
+			</label>
+		</div>
+		 
+		<div>
+			<p>
+				<strong>fyou are not a member, first register</strong>
+			</p>
+		</div>
+	</form>
+	<button type="button" onclick='location.href = "register.jsp"'>Register</button>
 </body>
 </html>
